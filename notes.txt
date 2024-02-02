@@ -1,0 +1,28 @@
+                                            [what learn't] : 
+-> how to create a custom html reu-usable component in vanilla js and html ,  by extending the HTMLElement class and then defining in [customElements.define('your-component-using-name' , your-comsponent-class)]
+ example : 
+ (creation)
+ class Navbar extends HTMLElement {
+  constructor(){
+    super()
+    this.innerHTML = 'your html markup of the component'
+  }
+}
+
+(usage) :
+customElements.define("nav-bar", Navbar) to use it import js file in the html file and use it by the tag name you defined in this case its <nav-bar></nav-bar> note: always add a ending tag
+
+
+                                            PROBLEMS
+
+[Problem : 1]
+
+sometimes our custom components have tough time styling coz tailwind scan the document and then add the styling and it done ,
+
+but i  case of custom components which we have created using javascript thier  defined markup is added later and not scanned and ,hence not scanned so no  styling so always ,
+ - add your custom components .js file to tailwind config file so it can scan its markup and generate styles for it 
+
+
+[Problem : 2]
+
+...
