@@ -596,11 +596,6 @@ video {
   margin-bottom: 1.75rem;
 }
 
-.mx-2{
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-}
-
 .mb-2{
   margin-bottom: 0.5rem;
 }
@@ -615,10 +610,6 @@ video {
 
 .mr-5{
   margin-right: 1.25rem;
-}
-
-.mt-4{
-  margin-top: 1rem;
 }
 
 .mt-5{
@@ -695,14 +686,6 @@ video {
   width: 100%;
 }
 
-.min-w-full{
-  min-width: 100%;
-}
-
-.min-w-60{
-  min-width: 15rem;
-}
-
 .max-w-4xl{
   max-width: 56rem;
 }
@@ -713,6 +696,22 @@ video {
 
 .max-w-screen-xl{
   max-width: 1280px;
+}
+
+.max-w-\[\]{
+  max-width: ;
+}
+
+.max-w-\[5px\]{
+  max-width: 5px;
+}
+
+.max-w-\[500px\]{
+  max-width: 500px;
+}
+
+.max-w-\[400px\]{
+  max-width: 400px;
 }
 
 .cursor-pointer{
@@ -767,10 +766,6 @@ video {
   border-radius: 0.75rem;
 }
 
-.rounded{
-  border-radius: 0.25rem;
-}
-
 .border-2{
   border-width: 2px;
 }
@@ -799,16 +794,16 @@ video {
   --tw-bg-opacity: 0.02;
 }
 
+.p-3{
+  padding: 0.75rem;
+}
+
 .p-4{
   padding: 1rem;
 }
 
 .p-7{
   padding: 1.75rem;
-}
-
-.p-3{
-  padding: 0.75rem;
 }
 
 .px-2{
@@ -952,7 +947,7 @@ video {
 
 .text-cred{
   --tw-text-opacity: 1;
-  color: rgb(255 0 0 / var(--tw-text-opacity));
+  color: rgb(255 54 54 / var(--tw-text-opacity));
 }
 
 .text-cwhite{
@@ -967,7 +962,7 @@ video {
 
 .hover\:border-cred:hover{
   --tw-border-opacity: 1;
-  border-color: rgb(255 0 0 / var(--tw-border-opacity));
+  border-color: rgb(255 54 54 / var(--tw-border-opacity));
 }
 
 .hover\:bg-cblack:hover{
@@ -978,10 +973,6 @@ video {
 .hover\:bg-cdarkblue:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(0 125 172 / var(--tw-bg-opacity));
-}
-
-.hover\:font-bold:hover{
-  font-weight: 700;
 }
 
 .hover\:font-semibold:hover{
@@ -995,7 +986,7 @@ video {
 
 .hover\:text-cred:hover{
   --tw-text-opacity: 1;
-  color: rgb(255 0 0 / var(--tw-text-opacity));
+  color: rgb(255 54 54 / var(--tw-text-opacity));
 }
 
 .hover\:text-cwhite:hover{
@@ -1039,22 +1030,6 @@ video {
 
   .md\:min-h-\[500px\]{
     min-height: 500px;
-  }
-
-  .md\:w-8\/12{
-    width: 66.666667%;
-  }
-
-  .md\:w-full{
-    width: 100%;
-  }
-
-  .md\:w-7\/12{
-    width: 58.333333%;
-  }
-
-  .md\:w-5\/12{
-    width: 41.666667%;
   }
 
   .md\:w-6\/12{

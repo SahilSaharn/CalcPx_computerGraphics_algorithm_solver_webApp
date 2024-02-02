@@ -24,15 +24,14 @@ class NavbarTools extends HTMLElement {
     super();
     this.innerHTML = 
 		`
-		<div id='tools-menu' class="hidden fixed text-cwhite  w-10/12 bg-cblack h-full right-0 top-0 p-7 overflow-y-scroll" >
+		<div id='tools-menu' class="hidden fixed text-cwhite  w-10/12 max-w-[400px] bg-cblack h-full right-0 top-0 p-7 overflow-y-scroll" >
 
     <div class="flex justify-between items-start">
       <h3 class="text-cblue font-bold text-3xl mb-7" >Tools</h3>
       <button onclick="toggleToolsMenu()" class="text-cred" >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ff0000" class="w-8 h-8">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ff3636" class="w-8 h-8">
           <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" clip-rule="evenodd" />
-        </svg>     
-                                
+        </svg>                     
       </button>
     </div>
 
@@ -87,8 +86,8 @@ class FooterLinks extends HTMLElement {
     this.innerHTML = 
     `
     <footer class="hidden lg:block bg-cwhite bg-opacity-glass mt-5 text-center  py-8 md:py-12 text-cwhite" >
-    <h5 class=" font-bold text-xl" >Other Tools > </h5>
-    <p class="mt-4 inline-block md:w-6/12">
+    <h5 class=" font-bold text-2xl" >Other Tools > </h5>
+    <p class="inline-block md:w-6/12">
       <a href="#" class="text-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >dda line draw algo. solver</a>
       <a href="#" class="text-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >Bresenham's line Draw</a>
       <a href="#" class="text-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >Mid Point Circle Draw</a>
@@ -160,10 +159,10 @@ class Form2d extends HTMLElement{
             <h5 class="text-cwhite font-medium text-xl my-2">End Co-ordinate</h5>
             <div class="flex justify-around">
               <span class="text-cwhite font-bold text-sm text-left w-full"> X: &nbsp; 
-                <input type="text" name="start-x-coordinate" id="startXCoOrdinate" class="cordinate-inputs bg-cblack rounded-md py-1 px-2 w-2/4 focus:outline-1 focus:outline-cblue outline-none">
+                <input type="text" name="start-x-coordinate" id="endXCoOrdinate" class="cordinate-inputs bg-cblack rounded-md py-1 px-2 w-2/4 focus:outline-1 focus:outline-cblue outline-none">
               </span>
               <span class="text-cwhite font-bold text-sm text-right w-full"> Y: &nbsp; 
-                <input type="text" name="start-y-coordinate" id="startYCoOrdinate" class="cordinate-inputs bg-cblack rounded-md py-1 px-2 w-2/4 focus:outline-1 focus:outline-cblue outline-none">
+                <input type="text" name="start-y-coordinate" id="endYCoOrdinate" class="cordinate-inputs bg-cblack rounded-md py-1 px-2 w-2/4 focus:outline-1 focus:outline-cblue outline-none">
               </span>
             </div>
           </div>
@@ -175,7 +174,7 @@ class Form2d extends HTMLElement{
 
         <div class="flex justify-end my-3">
           <button class="text-cwhite font-bold text-sm border-2 border-cwhite rounded-lg py-2 px-5 hover:text-cred hover:border-cred mr-5" onclick="resetInputs()" type="button">Reset</button>
-          <button class="text-cwhite text-sm bg-cblue font-bold rounded-lg py-2 px-5 hover:bg-cdarkblue">Calculate</button>
+          <button class="text-cwhite text-sm bg-cblue font-bold rounded-lg py-2 px-5 hover:bg-cdarkblue"  type="button" onclick="main2d('${this.getAttribute("algo_mode").trim()}')" >Calculate</button>
         </div>
 
     </form>

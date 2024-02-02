@@ -7,7 +7,7 @@ module.exports = {
       "cblue" : "#00A8E8",
       "cwhite" : "#F5F3F4",
       "clessopacitywhite" : "rgba(245, 243, 244, 0.5)" ,
-      "cred" : "#ff0000",
+      "cred" : "#ff3636",
       "cdarkblue" : "#007dac"
     },
     fontFamily :{
