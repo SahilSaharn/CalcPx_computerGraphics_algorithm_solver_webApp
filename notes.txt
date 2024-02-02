@@ -12,6 +12,9 @@
 (usage) :
 customElements.define("nav-bar", Navbar) to use it import js file in the html file and use it by the tag name you defined in this case its <nav-bar></nav-bar> note: always add a ending tag
 
+-> how to make it dynamic 
+-> and how to push code to a repository 
+
 
                                             PROBLEMS
 

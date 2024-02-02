@@ -81,5 +81,107 @@ class NavbarTools extends HTMLElement {
 
 }
 
+class FooterLinks extends HTMLElement {
+  constructor(){
+    super();
+    this.innerHTML = 
+    `
+    <footer class="hidden lg:block bg-cwhite bg-opacity-glass mt-5 text-center  py-8 md:py-12 text-cwhite" >
+    <h5 class=" font-bold text-xl" >Other Tools > </h5>
+    <p class="mt-4 inline-block md:w-8/12">
+      <a href="#" class="font-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >dda line draw algo. solver</a>
+      <a href="#" class="font-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >Bresenham's line Draw</a>
+      <a href="#" class="font-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >Mid Point Circle Draw</a>
+      <a href="#" class="font-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >Bresenham's Circle Draw</a>
+      <a href="#" class="font-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >2d-Translation</a>
+      <a href="#" class="font-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >2d-Scaling</a>
+      <a href="#" class="font-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >2d-Rotation</a>
+      <a href="#" class="font-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >2d-Reflection</a>
+      <a href="#" class="font-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >2d-Shearing</a>
+      <a href="#" class="font-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >3d-Translation</a>
+      <a href="#" class="font-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >3d-Scaling</a>
+      <a href="#" class="font-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >3d-Rotation</a>
+      <a href="#" class="font-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >3d-Reflection</a>
+      <a href="#" class="font-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >3d-Shearing</a>
+    </p>
+  </footer>
+  `
+
+  }
+}
+
+class ResultContainer extends HTMLElement {
+  constructor(){
+    super();
+
+    //this line is added due to fix style issue's
+    this.classList.add("w-full")
+
+
+    this.innerHTML = 
+    `
+    <div class="bg-cwhite p-4 bg-opacity-glass rounded-xl  my-5 min-h-52 max-h-[420px]  overflow-y-auto md:mx-3 md:my-0 md:min-h-[500px] md:max-h-[550px] ">
+
+    <h3 class="text-cblue font-semibold text-2xl sm:text-3xl">Result.</h3>
+    <p id="result-cont" class="my-2 font-normal text-cwhite">
+      <span class="inline-block px-2 py-1 rounded-md m-1  hover:font-bold">[67 , 78]</span>
+      
+    </p>
+    </div>
+    `
+  }
+}
+
+class Form2d extends HTMLElement{
+  constructor(){
+    super();
+    console.log(this.getAttribute("algo_mode"))
+    this.innerHTML = 
+    `
+    <form class="bg-cwhite p-4 bg-opacity-glass rounded-xl max-w-[550px] md:min-w-[550px] max-h-fit">
+        <h3 class="text-cblue font-semibold text-2xl sm:text-3xl">DDA line draw Algorithm Solver.</h3>
+        <div class="my-6">
+
+          <div>
+            <h5 class="text-cwhite font-medium text-xl my-2">Start Co-ordinate</h5>
+            <div class="flex justify-around">
+              <span class="text-cwhite font-bold text-sm text-left w-full"> X: &nbsp; <input type="text"
+                  name="start-x-coordinate" id="startXCoOrdinate"
+                  class="cordinate-inputs bg-cblack rounded-md py-1 px-2 w-2/4 focus:outline-1 focus:outline-cblue outline-none"> </span>
+              <span class="text-cwhite font-bold text-sm text-right w-full"> Y: &nbsp; <input type="text"
+                  name="start-y-coordinate" id="startYCoOrdinate"
+                  class="cordinate-inputs bg-cblack rounded-md py-1 px-2 w-2/4 focus:outline-1 focus:outline-cblue outline-none"> </span>
+            </div>
+          </div>
+
+          <div class="my-7">
+            <h5 class="text-cwhite font-medium text-xl my-2">End Co-ordinate</h5>
+            <div class="flex justify-around">
+              <span class="text-cwhite font-bold text-sm text-left w-full"> X: &nbsp; <input type="text"
+                  name="start-x-coordinate" id="startXCoOrdinate"
+                  class="cordinate-inputs bg-cblack rounded-md py-1 px-2 w-2/4 focus:outline-1 focus:outline-cblue outline-none"> </span>
+              <span class="text-cwhite font-bold text-sm text-right w-full"> Y: &nbsp; <input type="text"
+                  name="start-y-coordinate" id="startYCoOrdinate"
+                  class="cordinate-inputs bg-cblack rounded-md py-1 px-2 w-2/4 focus:outline-1 focus:outline-cblue outline-none"> </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-end my-3">
+          <button
+            class="text-cwhite font-bold text-sm border-2 border-cwhite rounded-lg py-2 px-5 hover:text-cred hover:border-cred mr-5" onclick="resetInputs()" type="button" >Reset</button>
+          <button
+            class="text-cwhite text-sm bg-cblue font-bold rounded-lg py-2 px-5 hover:bg-cdarkblue">Calculate</button>
+        </div>
+      </form>
+    `
+  }
+}
+
 customElements.define("nav-bar", Navbar)
 customElements.define("nav-bar-menu" , NavbarTools)
+customElements.define("footer-links" , FooterLinks)
+customElements.define("result-container" ,  ResultContainer)
+customElements.define("form-2d" , Form2d)
+
+
