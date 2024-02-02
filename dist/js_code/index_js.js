@@ -1,6 +1,5 @@
 const toggleToolsMenu = () => {
     // console.log("hleloo")
-    console.log(someone)
     try{
         const menu = document.getElementById("tools-menu")
         if(menu.style.display === "none")
@@ -11,3 +10,5 @@ const toggleToolsMenu = () => {
         console.error(err);
     }
 }
+
+
