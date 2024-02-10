@@ -31,7 +31,8 @@ const main2d = (code)=> {
         let starty = validateAndConvNumber(document.getElementById('startYCoOrdinate').value)
         let endx = validateAndConvNumber(document.getElementById('endXCoOrdinate').value)
         let endy = validateAndConvNumber(document.getElementById('endYCoOrdinate').value)
-
+        
+        
 
     } catch(err) {
         console.log(err.message);

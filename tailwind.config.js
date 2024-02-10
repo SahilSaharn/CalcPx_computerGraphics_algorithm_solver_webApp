@@ -13,11 +13,13 @@ module.exports = {
     fontFamily :{
       poppins : ['Poppins',"Arial"] 
     },
-    opacity :{
-      'glass': '0.02'
-    },
 
-    extend: {}
+
+    extend: {
+      opacity :{
+        'glass': '0.02'
+      }
+    }
   },
   plugins: [],
 }

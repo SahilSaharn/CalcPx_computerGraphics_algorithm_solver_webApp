@@ -7,30 +7,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CalcPx - Dda Line Draw Solver</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="buildingblockanimate.css">
 </head>
 
 <body class="bg-cblack font-poppins">
+  <px-loader></px-loader>
 
   <nav-bar></nav-bar>
-
   <!-- main div  -->
-  <div class="px-6 w-full max-w-screen-xl mx-auto relative ">
+  <div class="px-6 w-full max-w-screen-xl mx-auto relative">
 
     <div class="md:flex md:justify-around md:items-start ">
-      <form-2d algo_mode = "1fdsd" ></form-2d>
+      <line-draw-form algo_mode="" form_title="DDA line draw Algorithm Solver."></line-draw-form>
       <result-container></result-container>
     </div>
 
     <nav-bar-menu></nav-bar-menu>
   </div>
 
-  <footer-links mode="i am dda line draw" id="foooter" content="I am very big footer"></footer-links>
-
+  <footer-links></footer-links>
+  
   <script src="./js_code/Components.js"></script>
   <script src="./js_code/index_js.js"></script>
   <script src="./js_code/main.js"></script>
 
-
+  
 </body>
 
 </html>

@@ -1,9 +1,9 @@
 
 class Navbar extends HTMLElement {
-  constructor(){
+  constructor() {
     super()
-    this.innerHTML = 
-    `
+    this.innerHTML =
+      `
 		<nav class="text-cblue flex justify-between items-center py-3 px-5 bg-cblack " >
 			<h3 class="text-4xl font-bold" >
 				CalcPx
@@ -20,10 +20,10 @@ class Navbar extends HTMLElement {
 }
 
 class NavbarTools extends HTMLElement {
-  constructor(){
+  constructor() {
     super();
-    this.innerHTML = 
-		`
+    this.innerHTML =
+      `
 		<div id='tools-menu' class="hidden fixed text-cwhite  w-10/12 max-w-[400px] bg-cblack h-full right-0 top-0 p-7 overflow-y-scroll" >
 
     <div class="flex justify-between items-start">
@@ -80,11 +80,11 @@ class NavbarTools extends HTMLElement {
 
 }
 
-class FooterLinks extends HTMLElement { 
-  constructor(){
+class FooterLinks extends HTMLElement {
+  constructor() {
     super();
-    this.innerHTML = 
-    `
+    this.innerHTML =
+      `
     <footer class="hidden lg:block bg-cwhite bg-opacity-glass mt-5 text-center  py-8 md:py-12 text-cwhite" >
     <h5 class=" font-bold text-2xl" >Other Tools > </h5>
     <p class="inline-block md:w-6/12">
@@ -110,15 +110,14 @@ class FooterLinks extends HTMLElement {
 }
 
 class ResultContainer extends HTMLElement {
-  constructor(){
+  constructor() {
     super();
 
     //this line is added due to fix style issue's
     this.classList.add("w-full")
 
-
-    this.innerHTML = 
-    `
+    this.innerHTML =
+      `
     <div class="bg-cwhite p-4 bg-opacity-glass rounded-xl  my-5 min-h-52 max-h-[420px]  overflow-y-auto md:mx-3 md:my-0 md:min-h-[500px] md:max-h-[550px] ">
 
     <h3 class="text-cblue font-semibold text-2xl sm:text-3xl">Result.</h3>
@@ -131,15 +130,18 @@ class ResultContainer extends HTMLElement {
   }
 }
 
-class Form2d extends HTMLElement{
-  constructor(){
+class LineDrawForm extends HTMLElement {
+  constructor() {
     super();
     console.log(this.getAttribute("algo_mode"))
-    this.innerHTML = 
-    `
+    console.log(this.getAttribute("form_title"))
+
+    const title = this.getAttribute("form_title")
+    this.innerHTML =
+      `
     <form class="bg-cwhite p-4 bg-opacity-glass rounded-xl max-w-[550px] md:min-w-[550px] max-h-fit">
 
-        <h3 class="text-cblue font-semibold text-2xl sm:text-3xl">DDA line draw Algorithm Solver.</h3>
+        <h3 class="text-cblue font-semibold text-2xl sm:text-3xl"> ${title} </h3>
         
         <div class="my-6">
 
@@ -182,10 +184,23 @@ class Form2d extends HTMLElement{
   }
 }
 
+class PxLoader extends HTMLElement {
+  constructor() {
+    super();
+    this.innerHTML =
+    `
+    <div id="pxloader" class="hidden fixed right-0 top-0 w-full h-screen z-10 justify-center items-center bg-cblack bg-opacity-90 backdrop-blur-sm ">
+      <div class="loader"></div> 
+    </div>
+    `
+  }
+}
+
 customElements.define("nav-bar", Navbar)
-customElements.define("nav-bar-menu" , NavbarTools)
-customElements.define("footer-links" , FooterLinks)
-customElements.define("result-container" ,  ResultContainer)
-customElements.define("form-2d" , Form2d)
+customElements.define("nav-bar-menu", NavbarTools)
+customElements.define("footer-links", FooterLinks)
+customElements.define("result-container", ResultContainer)
+customElements.define("line-draw-form", LineDrawForm)
+customElements.define("px-loader" , PxLoader)
 
 
