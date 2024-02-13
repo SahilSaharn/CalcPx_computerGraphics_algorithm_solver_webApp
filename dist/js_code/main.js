@@ -1,4 +1,3 @@
-
 const logError = (errMsg) => {
     const errDisplay = document.getElementById('err-msg-log')
     errDisplay.style.display = "block"
@@ -39,7 +38,10 @@ const main2d = (code)=> {
 
         //here we have the all vaildated coordinates and now we just have to get the result!
         togglePxLoader()
-        
+        const result = ddaCalc(startx,starty, endx, endy);
+        showResult(result)
+        setTimeout( ()=> togglePxLoader() , Math.floor(Math.random() * (2000 - 500 + 1) + 500))
+
     } catch(err) {
         console.log(err.message);
         logError(err.message)
@@ -58,4 +60,59 @@ const resetInputs = () => {
 
     const errDisplay = document.getElementById('err-msg-log').style.display = 'none'
 
+}
+
+const showResult = (array) => {
+    const result_ele = document.getElementById('result-cont')
+    let result_str = ""
+    array.map( ele => result_str += `<span class="inline-block px-2 py-1 rounded-md m-1 ">[${ele.x} , ${ele.y}]</span>` )
+    // console.log(result_str)
+    result_ele.innerHTML = result_str
+
+}
+
+
+const ddaCalc = (startx, starty, endx, endy) => {
+    
+    // console.log(startx, starty , endx , endy)
+    let dx = endx - startx , dy = endy - starty;
+    let steps = Math.max( dx , dy )
+    if(steps < 0) steps = -steps
+
+    let x_inc = dx/steps , y_inc = dy/steps
+    let swapped= false
+    if( x_inc > 1 || x_inc < -1 || y_inc > 1 || y_inc < -1){
+        // console.log('i am wrong block')
+        swapped = true
+        //then we need to swap the start and end coords and calc new dx , dy , steps , x_inc & y_inc
+        let temp = startx
+        startx = endx
+        endx = temp
+
+        temp = starty
+        starty = endy
+        endy = temp
+        //coords swappped...
+
+        dx = endx-startx, dy = endy- starty, steps = Math.max(dx , dy)
+        x_inc = dx / steps , y_inc = dy /steps
+    }
+
+    steps++
+    console.log( x_inc , y_inc , steps )
+
+    let result = new Array()
+    while(steps--){
+        let curr_x = Math.round(startx)
+        let curr_y = Math.round(starty)
+
+        result.push({x: curr_x , y :curr_y})
+        startx += x_inc
+        starty += y_inc
+    }
+
+    if(swapped)
+        result.reverse()
+
+    return result
 }

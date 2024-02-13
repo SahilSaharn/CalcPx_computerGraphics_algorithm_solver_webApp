@@ -122,8 +122,7 @@ class ResultContainer extends HTMLElement {
 
     <h3 class="text-cblue font-semibold text-2xl sm:text-3xl">Result.</h3>
     <p id="result-cont" class="my-2 font-normal text-cwhite">
-      <span class="inline-block px-2 py-1 rounded-md m-1  hover:font-semibold">[67 , 78]</span>
-      
+      <span class="inline-block px-2 py-1 rounded-md m-1 text-cwhite/20 "> [Your result here].</span>
     </p>
     </div>
     `

@@ -959,6 +959,18 @@ video {
   color: rgb(245 243 244 / var(--tw-text-opacity));
 }
 
+.text-cwhite\/50{
+  color: rgb(245 243 244 / 0.5);
+}
+
+.text-cwhite\/25{
+  color: rgb(245 243 244 / 0.25);
+}
+
+.text-cwhite\/20{
+  color: rgb(245 243 244 / 0.2);
+}
+
 .outline-none{
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -983,10 +995,6 @@ video {
 .hover\:bg-cdarkblue:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(0 125 172 / var(--tw-bg-opacity));
-}
-
-.hover\:font-semibold:hover{
-  font-weight: 600;
 }
 
 .hover\:text-cblue:hover{
