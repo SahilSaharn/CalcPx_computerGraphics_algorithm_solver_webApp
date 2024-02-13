@@ -15,7 +15,10 @@ const validateAndConvNumber = ( num_str ) => {
         const num = Number(num_str)
         if( isNaN(num) )
             throw new Error("Only Numbers are allowed as co-ordinates")
+        else if( !Number.isInteger(num) )
+            throw new Error("Only Integers are allowed as co-ordinates")
         else return num
+
     } catch (err) {
         //thrown again to the parent function...
         throw err
@@ -32,14 +35,15 @@ const main2d = (code)=> {
         let endx = validateAndConvNumber(document.getElementById('endXCoOrdinate').value)
         let endy = validateAndConvNumber(document.getElementById('endYCoOrdinate').value)
         
-        
+        console.log(startx , starty, endx , endy)
 
+        //here we have the all vaildated coordinates and now we just have to get the result!
+        togglePxLoader()
+        
     } catch(err) {
         console.log(err.message);
         logError(err.message)
     }
-    
-
 
 }
 
@@ -52,6 +56,6 @@ const resetInputs = () => {
     for(let i= 0 ; i < input_flds.length ; i++)
         input_flds[i].value = "";
 
-        const errDisplay = document.getElementById('err-msg-log').style.display = 'none'
+    const errDisplay = document.getElementById('err-msg-log').style.display = 'none'
 
 }

@@ -1,4 +1,4 @@
-                                            [what learn't] : 
+                              [what learn't] : 
 -> how to create a custom html reu-usable component in vanilla js and html ,  by extending the HTMLElement class and then defining in [customElements.define('your-component-using-name' , your-comsponent-class)]
  example : 
  (creation)
@@ -16,7 +16,7 @@ customElements.define("nav-bar", Navbar) to use it import js file in the html fi
 -> and how to push code to a repository 
 
 
-                                            PROBLEMS
+                                PROBLEMS
 
 [Problem : 1]
 
@@ -27,5 +27,22 @@ but i  case of custom components which we have created using javascript thier  d
 
 
 [Problem : 2]
+i have to click button two times to trigger onclick function in htm
+,Why do my buttons have to be clicked twice to run the function
+,The first time a button is clicked it has to be clicked twice to active, but then it works on a single click.
+
+[solution]
+If you read element.style via JS it will only include the style properties that are set on the element's actual style attribute. Your first click reads the style for "display" which is "" and thus sets it to "none". The next click reads the current "display" value (currently "none") and then inverts it to "block".
+
+You can either set the elements style prop to "display:none", or you can invert your JS Logic, like so:
+
+function myFunction(divid) { 
+    var x = document.getElementById(divid);
+    if (x.style.display == 'block') {
+        x.style.display = 'none';
+    } else {
+        x.style.display = 'block';
+    }
+}
 
 ...
