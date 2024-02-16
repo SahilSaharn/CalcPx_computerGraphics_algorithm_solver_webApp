@@ -14,7 +14,9 @@ customElements.define("nav-bar", Navbar) to use it import js file in the html fi
 
 -> how to make it dynamic 
 -> and how to push code to a repository 
-
+-> how to generate a random number in js in a range of (min , max)
+-> convert a string to  a number and validate it 
+-> how to check if a number is integer or float 
 
                                 PROBLEMS
 

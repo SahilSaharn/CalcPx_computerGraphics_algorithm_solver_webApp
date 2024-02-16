@@ -169,7 +169,7 @@ class LineDrawForm extends HTMLElement {
           </div>
         </div>
 
-        <div id="err-msg-log" class="hidden text-cred font-semibold bg-cblack p-3 text-xs rounded-xl">
+        <div id="err-msg-log"  class="hidden text-cred font-semibold bg-cblack p-3 text-xs rounded-xl border-cred border-2">
           error message!
         </div>
 

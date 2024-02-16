@@ -1,7 +1,18 @@
 const logError = (errMsg) => {
+    //check element here
     const errDisplay = document.getElementById('err-msg-log')
+    errDisplay.classList.remove('shake-animate')
+    void errDisplay.offsetWidth
     errDisplay.style.display = "block"
     errDisplay.innerHTML = errMsg + "!"
+
+    errDisplay.classList.add("shake-animate")
+
+}
+
+const unlogError = () => {
+    const errDisplay = document.getElementById('err-msg-log')
+    errDisplay.style.display = "none"
 }
 
 //validates and returns the number elses thrws the error
@@ -40,6 +51,7 @@ const main2d = (code)=> {
         togglePxLoader()
         const result = ddaCalc(startx,starty, endx, endy);
         showResult(result)
+        unlogError()
         setTimeout( ()=> togglePxLoader() , Math.floor(Math.random() * (2000 - 500 + 1) + 500))
 
     } catch(err) {
@@ -58,7 +70,7 @@ const resetInputs = () => {
     for(let i= 0 ; i < input_flds.length ; i++)
         input_flds[i].value = "";
 
-    const errDisplay = document.getElementById('err-msg-log').style.display = 'none'
+    unlogError()
 
 }
 
@@ -72,6 +84,7 @@ const showResult = (array) => {
 }
 
 
+// dda line draw algo solver...
 const ddaCalc = (startx, starty, endx, endy) => {
     
     // console.log(startx, starty , endx , endy)
