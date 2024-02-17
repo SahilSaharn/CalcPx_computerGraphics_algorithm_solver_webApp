@@ -1,13 +1,14 @@
 const logError = (errMsg) => {
     //check element here
     const errDisplay = document.getElementById('err-msg-log')
+
     errDisplay.classList.remove('shake-animate')
     void errDisplay.offsetWidth
+
     errDisplay.style.display = "block"
     errDisplay.innerHTML = errMsg + "!"
 
     errDisplay.classList.add("shake-animate")
-
 }
 
 const unlogError = () => {
@@ -35,7 +36,8 @@ const validateAndConvNumber = ( num_str ) => {
     }
 }
 
-const main2d = (code)=> {
+const main2d = (mode)=> {
+    // console.log(mode)
     //this is the main fnctn which will take the algo_code and coordinates
     try{
 
@@ -49,7 +51,12 @@ const main2d = (code)=> {
 
         //here we have the all vaildated coordinates and now we just have to get the result!
         togglePxLoader()
-        const result = ddaCalc(startx,starty, endx, endy);
+        let result = null;
+        if(mode === "line_draw_dda"){
+            result = ddaLIneDrawCalc(startx,starty, endx, endy);
+        } else if(mode === "line_draw_bresenham"){
+            result = bresenhamLineDrawCalc(startx,starty, endx, endy);
+        }
         showResult(result)
         unlogError()
         setTimeout( ()=> togglePxLoader() , Math.floor(Math.random() * (2000 - 500 + 1) + 500))
@@ -85,7 +92,7 @@ const showResult = (array) => {
 
 
 // dda line draw algo solver...
-const ddaCalc = (startx, starty, endx, endy) => {
+const ddaLIneDrawCalc = (startx, starty, endx, endy) => {
     
     // console.log(startx, starty , endx , endy)
     let dx = endx - startx , dy = endy - starty;
@@ -128,4 +135,59 @@ const ddaCalc = (startx, starty, endx, endy) => {
         result.reverse()
 
     return result
+}
+
+// not working fix testcases ....
+const bresenhamLineDrawCalc = (startx, starty, endx, endy) => {
+    //refrence algorithm article... 
+    //https://saturncloud.io/blog/bresenham-line-algorithm-a-powerful-tool-for-efficient-line-drawing/    console.log('i am bresenham')
+
+    let dx = Math.abs( endx - startx ) , dy = Math.abs( endy - starty )
+    
+    let slope = ( dy > dx ) ? true : false
+
+    if( slope ){
+        let temp = startx
+        startx = starty
+        starty = temp
+
+        temp = endx
+        endx = endy
+        endy = temp
+    } 
+
+    let swapped = false;
+    if( startx > endx ){
+        let temp = startx
+        startx = endx
+        endx = temp
+
+        temp = starty
+        starty = endy
+        endy = temp
+        swapped = true
+    }
+
+    dx = Math.abs( endx - startx ) , dy = Math.abs( endy - starty )
+    let dp = (2 * dy) - dx
+    let ystep = ( starty > endy ) ? -1 : 1
+
+
+    // console.log(dx , dy , dp )
+    let result = new Array()
+
+    while( startx <= endx ){
+        // console.log( startx , starty , dp )
+        result.push( (slope) ? { x : starty, y : startx }  :{ x : startx, y : starty } )
+        if( dp >= 0 ){
+            starty += ystep
+            dp += 2*( dy - dx )
+        } else {
+            dp += 2* dy
+        }
+        startx += 1
+    }
+
+    return (swapped) ? result.reverse()  : result
+
 }

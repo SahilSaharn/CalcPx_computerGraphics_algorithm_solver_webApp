@@ -33,7 +33,7 @@
 }
 
 .shake-animate {
-  animation: horizontal-shaking .3s;
+  animation: horizontal-shaking .2s ;
 }
 
 @keyframes horizontal-shaking {

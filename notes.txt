@@ -47,4 +47,24 @@ function myFunction(divid) {
     }
 }
 
+
+[Problem : 3]
+hpw to add a animation no click onto a element and it plays on each click
+
+[solution]
+create the animate clas and add to the element on onlick event and before adding remove it and make sure to set elements offsetWidth
+{EXAMPLE function which works on click}
+  const logError = (errMsg) => {
+      //check element here
+      const our_element = document.getElementById('our_element_id')
+
+      our_element.classList.remove('.our_css_animate_class')
+      void our_element.offsetWidth
+
+      our_element.style.display = "block"
+      our_element.innerHTML = errMsg + "!"
+
+      our_element.classList.add(".our_css_animate_class")
+
+  }
 ...

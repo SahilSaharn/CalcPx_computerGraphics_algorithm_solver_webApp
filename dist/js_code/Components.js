@@ -39,7 +39,7 @@ class NavbarTools extends HTMLElement {
       <h5 class="font-semibold text-xl" >Line Draw ALgo. Solver</h5>
       <section class="flex flex-col px-3 py-2">
         <a href="line_draw_dda_solver.html" class="hover:text-cblue" >DDA Line Draw</a>
-        <a href="#" class="hover:text-cblue">Bresenham's line Draw</a>
+        <a href="line_draw_bresenham_solver.html" class="hover:text-cblue">Bresenham's line Draw</a>
       </section>
     </section>
 
@@ -88,8 +88,8 @@ class FooterLinks extends HTMLElement {
     <footer class="hidden lg:block bg-cwhite bg-opacity-glass mt-5 text-center  py-8 md:py-12 text-cwhite" >
     <h5 class=" font-bold text-2xl" >Other Tools > </h5>
     <p class="inline-block md:w-6/12">
-      <a href="#" class="text-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >dda line draw algo. solver</a>
-      <a href="#" class="text-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >Bresenham's line Draw</a>
+      <a href="line_draw_dda_solver.html" class="text-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >dda line draw algo. solver</a>
+      <a href="line_draw_bresenham_solver.html" class="text-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >Bresenham's line Draw</a>
       <a href="#" class="text-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >Mid Point Circle Draw</a>
       <a href="#" class="text-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >Bresenham's Circle Draw</a>
       <a href="#" class="text-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >2d-Translation</a>
@@ -132,13 +132,15 @@ class ResultContainer extends HTMLElement {
 class LineDrawForm extends HTMLElement {
   constructor() {
     super();
-    console.log(this.getAttribute("algo_mode"))
-    console.log(this.getAttribute("form_title"))
+    
+    const title = this.getAttribute("form_title").trim()
+    const mode = this.getAttribute("algo_mode").trim()
+    console.log(title)
+    console.log(mode) 
 
-    const title = this.getAttribute("form_title")
     this.innerHTML =
       `
-    <form class="bg-cwhite p-4 bg-opacity-glass rounded-xl max-w-[550px] md:min-w-[550px] max-h-fit">
+      <form class="bg-cwhite p-4 bg-opacity-glass rounded-xl max-w-[550px] md:min-w-[550px] max-h-fit" method="dialog" >
 
         <h3 class="text-cblue font-semibold text-2xl sm:text-3xl"> ${title} </h3>
         
@@ -174,10 +176,10 @@ class LineDrawForm extends HTMLElement {
         </div>
 
         <div class="flex justify-end my-3">
-          <button class="text-cwhite font-bold text-sm border-2 border-cwhite rounded-lg py-2 px-5 hover:text-cred hover:border-cred mr-5" onclick="resetInputs()" type="button">Reset</button>
-          <button class="text-cwhite text-sm bg-cblue font-bold rounded-lg py-2 px-5 hover:bg-cdarkblue"  type="button" onclick="main2d('${this.getAttribute("algo_mode").trim()}')" >Calculate</button>
+          <button class="text-cwhite font-bold text-sm border-2 border-cwhite rounded-lg py-2 px-5 hover:text-cred hover:border-cred mr-5" onclick="resetInputs()" type="button" >Reset</button>
+          <button class="text-cwhite text-sm bg-cblue font-bold rounded-lg py-2 px-5 hover:bg-cdarkblue" type="submit"  onclick="main2d('${mode}')" >Calculate</button>
         </div>
-
+          
     </form>
     `
   }
