@@ -36,7 +36,7 @@ const validateAndConvNumber = ( num_str ) => {
     }
 }
 
-const main2d = (mode)=> {
+const line_draw_main = (mode)=> {
     // console.log(mode)
     //this is the main fnctn which will take the algo_code and coordinates
     try{
@@ -56,6 +56,8 @@ const main2d = (mode)=> {
             result = ddaLIneDrawCalc(startx,starty, endx, endy);
         } else if(mode === "line_draw_bresenham"){
             result = bresenhamLineDrawCalc(startx,starty, endx, endy);
+        } else{
+            throw new Error("Invalid Algorithm. Mode")
         }
         showResult(result)
         unlogError()
@@ -66,6 +68,42 @@ const main2d = (mode)=> {
         logError(err.message)
     }
 
+}
+
+const circle_draw_main = (mode) => {
+    console.log(' iam a circle draw main ')
+
+    try{
+
+        const centerx = validateAndConvNumber( document.getElementById('centerXCoOrdinate').value )
+        const centery = validateAndConvNumber( document.getElementById('centerYCoOrdinate').value )
+        const rad = validateAndConvNumber( document.getElementById('radius').value )
+        console.log(centerx, centery , rad)
+
+        if( rad < 0) {
+            throw new Error("Radius cannot Be Negative")
+        }
+
+        //till here all inputs are validated...
+        togglePxLoader()
+        let result = null;
+
+        if(mode === "circle_draw_midpoint"){
+            result = midPointCircleDrawCalc(centerx  , centery  ,rad)
+        } else if (mode === "circle_draw_bresenham"){
+            result = bresenhamCircleDrawCalc(centerx  , centery  ,rad)
+        } else{
+            throw new Error("Inavlid Algorithm. Mode")
+        }
+
+        showResult(result)
+        unlogError()
+        setTimeout( ()=> togglePxLoader() , Math.floor(Math.random() * (2000 - 500 + 1) + 500))
+        
+    } catch ( err ) {
+        console.log(err.message)
+        logError(err.message)
+    }
 }
 
 
@@ -83,11 +121,16 @@ const resetInputs = () => {
 
 const showResult = (array) => {
     const result_ele = document.getElementById('result-cont')
+
+    if(array.length === 0){
+        result_ele.innerHTML = "No result..."
+        return 
+    }
+
     let result_str = ""
     array.map( ele => result_str += `<span class="inline-block px-2 py-1 rounded-md m-1 ">[${ele.x} , ${ele.y}]</span>` )
     // console.log(result_str)
     result_ele.innerHTML = result_str
-
 }
 
 
@@ -190,4 +233,49 @@ const bresenhamLineDrawCalc = (startx, starty, endx, endy) => {
 
     return (swapped) ? result.reverse()  : result
 
+}
+
+
+const midPointCircleDrawCalc = ( x , y , rad) => {
+
+    let start = {x : 0 , y : rad} , dp = 1 - rad;
+    let result = new Array()
+    if(rad === 0)
+        return result
+
+    while( start.x <= start.y ){
+        result.push({ x : start.x  , y : start.y },  { x: start.y , y : start.x })
+        // console.log(start.x, start.y , dp)
+        start.x++
+        if( dp < 0 ){
+            dp += 2 * start.x + 1
+        } else {
+            start.y--
+            dp += (start.x * 2) - (start.y * 2) +1
+        }
+    }
+
+    let newResult = new Array()
+
+    for(let i = 0 ; i < result.length ; i++){
+        let ele = result[i]
+
+        // 1st quadrant
+        newResult.push( { x : ele.x + x , y : ele.y + y } )
+    
+        //2nd quadrant
+        newResult.push( { x: (-ele.x) + x , y : (ele.y) + y } )
+
+        //3rd quadrant
+        newResult.push( { x: (-ele.x) + x , y : (-ele.y) + y } )
+
+        //4th quadrant
+        newResult.push( { x: (ele.x) + x , y : (-ele.y) + y } )
+    }
+
+    return newResult
+}
+
+const bresenhamCircleDrawCalc = ( x , y , rad) => {
+    clg("i am bresenhman circle draw...")
 }

@@ -150,10 +150,10 @@ class LineDrawForm extends HTMLElement {
             <h5 class="text-cwhite font-medium text-xl my-2">Start Co-ordinate</h5>
             <div class="flex justify-around">
               <span class="text-cwhite font-bold text-sm text-left w-full"> X: &nbsp; 
-                <input type="text" name="start-x-coordinate" id="startXCoOrdinate" class="cordinate-inputs bg-cblack rounded-md py-1 px-2 w-2/4 focus:outline-1 focus:outline-cblue outline-none">
+                <input type="text" name="start-x-coordinate" autocomplete="off" id="startXCoOrdinate" placeholder="start X" class="cordinate-inputs bg-cblack rounded-md py-1 px-2 w-2/4 focus:outline-1 focus:outline-cblue outline-none">
               </span>
               <span class="text-cwhite font-bold text-sm text-right w-full"> Y: &nbsp; 
-                <input type="text" name="start-y-coordinate" id="startYCoOrdinate" class="cordinate-inputs bg-cblack rounded-md py-1 px-2 w-2/4 focus:outline-1 focus:outline-cblue outline-none">
+                <input type="text" name="start-y-coordinate" autocomplete="off" id="startYCoOrdinate" placeholder="start Y" class="cordinate-inputs bg-cblack rounded-md py-1 px-2 w-2/4 focus:outline-1 focus:outline-cblue outline-none">
               </span>
             </div>
           </div>
@@ -162,10 +162,10 @@ class LineDrawForm extends HTMLElement {
             <h5 class="text-cwhite font-medium text-xl my-2">End Co-ordinate</h5>
             <div class="flex justify-around">
               <span class="text-cwhite font-bold text-sm text-left w-full"> X: &nbsp; 
-                <input type="text" name="start-x-coordinate" id="endXCoOrdinate" class="cordinate-inputs bg-cblack rounded-md py-1 px-2 w-2/4 focus:outline-1 focus:outline-cblue outline-none">
+                <input type="text" name="start-x-coordinate" autocomplete="off" id="endXCoOrdinate" placeholder="end X" class="cordinate-inputs bg-cblack rounded-md py-1 px-2 w-2/4 focus:outline-1 focus:outline-cblue outline-none">
               </span>
               <span class="text-cwhite font-bold text-sm text-right w-full"> Y: &nbsp; 
-                <input type="text" name="start-y-coordinate" id="endYCoOrdinate" class="cordinate-inputs bg-cblack rounded-md py-1 px-2 w-2/4 focus:outline-1 focus:outline-cblue outline-none">
+                <input type="text" name="start-y-coordinate" autocomplete="off" id="endYCoOrdinate" placeholder="end Y" class="cordinate-inputs bg-cblack rounded-md py-1 px-2 w-2/4 focus:outline-1 focus:outline-cblue outline-none">
               </span>
             </div>
           </div>
@@ -177,12 +177,65 @@ class LineDrawForm extends HTMLElement {
 
         <div class="flex justify-end my-3">
           <button class="text-cwhite font-bold text-sm border-2 border-cwhite rounded-lg py-2 px-5 hover:text-cred hover:border-cred mr-5" onclick="resetInputs()" type="button" >Reset</button>
-          <button class="text-cwhite text-sm bg-cblue font-bold rounded-lg py-2 px-5 hover:bg-cdarkblue" type="submit"  onclick="main2d('${mode}')" >Calculate</button>
+          <button class="text-cwhite text-sm bg-cblue font-bold rounded-lg py-2 px-5 hover:bg-cdarkblue" type="submit"  onclick="line_draw_main('${mode}')" >Calculate</button>
         </div>
           
     </form>
     `
   }
+}
+
+class CircleDrawForm extends HTMLElement{
+
+  constructor(){
+    super()
+
+    const title = this.getAttribute("title").trim()
+    const mode = this.getAttribute("algo_mode").trim()
+    
+    this.innerHTML = 
+    `
+    <form class="bg-cwhite p-4 bg-opacity-glass rounded-xl max-w-[550px] md:min-w-[550px] max-h-fit" method="dialog">
+
+    <h3 class="text-cblue font-semibold text-2xl sm:text-3xl">${title}</h3>
+
+    <div class="my-6">
+
+      <div>
+        <h5 class="text-cwhite font-medium text-xl my-2">Center Co-ord</h5>
+        <div class="flex justify-around">
+          <span class="text-cwhite font-bold text-sm text-left w-full"> X: &nbsp;
+            <input type="text" name="center-x-coordinate" autocomplete="off" id="centerXCoOrdinate" class="cordinate-inputs bg-cblack rounded-md py-1 px-2 w-2/4 focus:outline-1 focus:outline-cblue outline-none">
+          </span>
+          <span class="text-cwhite font-bold text-sm text-right w-full"> Y: &nbsp;
+            <input type="text" name="center-y-coordinate" autocomplete="off" id="centerYCoOrdinate" class="cordinate-inputs bg-cblack rounded-md py-1 px-2 w-2/4 focus:outline-1 focus:outline-cblue outline-none">
+          </span>
+        </div>
+      </div>
+
+      <div class="my-7 w-full">
+        <h5 class="text-cwhite font-medium text-xl my-2">Radius</h5>
+        <div class="flex justify-around">
+          <span class="text-cwhite font-bold text-sm text-left w-full"> R: &nbsp;
+            <input type="text" name="circle-radius" autocomplete="off" id="radius" class="cordinate-inputs bg-cblack rounded-md py-1 px-2 focus:outline-1 focus:outline-cblue outline-none">
+          </span>
+        </div>			
+      </div>
+    </div>
+
+    <div id="err-msg-log" class="hidden text-cred font-semibold bg-cblack p-3 text-xs rounded-xl border-cred border-2">
+      error message!
+    </div>
+
+    <div class="flex justify-end my-3">
+      <button	class="text-cwhite font-bold text-sm border-2 border-cwhite rounded-lg py-2 px-5 hover:text-cred hover:border-cred mr-5" onclick="resetInputs()" type="button">Reset</button>
+      <button class="text-cwhite text-sm bg-cblue font-bold rounded-lg py-2 px-5 hover:bg-cdarkblue" type="submit" onclick="circle_draw_main( '${mode}' )" >Calculate</button>
+    </div>
+
+    </form>
+    `
+  }
+
 }
 
 class PxLoader extends HTMLElement {
@@ -202,6 +255,7 @@ customElements.define("nav-bar-menu", NavbarTools)
 customElements.define("footer-links", FooterLinks)
 customElements.define("result-container", ResultContainer)
 customElements.define("line-draw-form", LineDrawForm)
+customElements.define("circle-draw-form", CircleDrawForm)
 customElements.define("px-loader" , PxLoader)
 
 

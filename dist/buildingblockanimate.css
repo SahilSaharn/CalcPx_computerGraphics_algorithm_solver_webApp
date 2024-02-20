@@ -43,3 +43,8 @@
   75% { transform: translateX(5px) }
   100% { transform: translateX(0) }
  }
+
+/* some design fixing css to fix layout */
+#radius{
+  width: 25%;
+}
