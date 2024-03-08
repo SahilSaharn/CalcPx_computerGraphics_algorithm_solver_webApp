@@ -1,3 +1,15 @@
+class Favicons extends HTMLElement {
+  constructor(){
+    super();
+    this.innerHTML = 
+    `
+    <link rel="apple-touch-icon" sizes="180x180" href="./calcpx_favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./calcpx_favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./calcpx_favicons/favicon-16x16.png">
+    <link rel="manifest" href="./calcpx_favicons/site.webmanifest">  
+    `
+  }
+}
 
 class Navbar extends HTMLElement {
   constructor() {
@@ -250,6 +262,7 @@ class PxLoader extends HTMLElement {
   }
 }
 
+customElements.define("favicons", Favicons)
 customElements.define("nav-bar", Navbar)
 customElements.define("nav-bar-menu", NavbarTools)
 customElements.define("footer-links", FooterLinks)
