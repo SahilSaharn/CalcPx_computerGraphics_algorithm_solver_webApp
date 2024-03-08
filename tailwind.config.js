@@ -10,10 +10,10 @@ module.exports = {
       "cred" : "#ff3636",
       "cdarkblue" : "#007dac"
     },
+    
     fontFamily :{
       poppins : ['Poppins',"Arial"] 
     },
-
 
     extend: {
       opacity :{

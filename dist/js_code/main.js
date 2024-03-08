@@ -240,10 +240,10 @@ const midPointCircleDrawCalc = ( x , y , rad) => {
 
     let start = {x : 0 , y : rad} , dp = 1 - rad;
     let result = new Array()
-    if(rad === 0)
+    if(rad <= 0)
         return result
 
-    while( start.x <= start.y ){
+    while( start.x < start.y ){
         result.push({ x : start.x  , y : start.y },  { x: start.y , y : start.x })
         // console.log(start.x, start.y , dp)
         start.x++

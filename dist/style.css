@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 /*
-! tailwindcss v3.4.0 | MIT License | https://tailwindcss.com
+! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -770,10 +770,6 @@ video {
   border-width: 2px;
 }
 
-.border{
-  border-width: 1px;
-}
-
 .border-cred{
   --tw-border-opacity: 1;
   border-color: rgb(255 54 54 / var(--tw-border-opacity));
@@ -975,18 +971,6 @@ video {
 .outline-none{
   outline: 2px solid transparent;
   outline-offset: 2px;
-}
-
-.outline{
-  outline-style: solid;
-}
-
-.outline-2{
-  outline-width: 2px;
-}
-
-.outline-cred{
-  outline-color: #ff3636;
 }
 
 .backdrop-blur-sm{

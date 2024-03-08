@@ -46,7 +46,7 @@ class NavbarTools extends HTMLElement {
     <section class="mb-5">
       <h5 class="font-semibold text-xl" >Circle Draw ALgo. Solver</h5>
       <section class="flex flex-col px-3 py-2">
-        <a href="#" class="hover:text-cblue">Mid Point Circle Draw </a>
+        <a href="circle_draw_midpoint.html" class="hover:text-cblue">Mid Point Circle Draw </a>
         <a href="#" class="hover:text-cblue">Bresenham's Circle Draw </a>
       </section>
     </section>
@@ -90,7 +90,7 @@ class FooterLinks extends HTMLElement {
     <p class="inline-block md:w-6/12">
       <a href="line_draw_dda_solver.html" class="text-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >dda line draw algo. solver</a>
       <a href="line_draw_bresenham_solver.html" class="text-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >Bresenham's line Draw</a>
-      <a href="#" class="text-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >Mid Point Circle Draw</a>
+      <a href="circle_draw_midpoint.html" class="text-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >Mid Point Circle Draw</a>
       <a href="#" class="text-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >Bresenham's Circle Draw</a>
       <a href="#" class="text-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >2d-Translation</a>
       <a href="#" class="text-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >2d-Scaling</a>
