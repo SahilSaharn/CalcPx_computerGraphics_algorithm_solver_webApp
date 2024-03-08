@@ -47,7 +47,7 @@ class NavbarTools extends HTMLElement {
       <h5 class="font-semibold text-xl" >Circle Draw ALgo. Solver</h5>
       <section class="flex flex-col px-3 py-2">
         <a href="circle_draw_midpoint.html" class="hover:text-cblue">Mid Point Circle Draw </a>
-        <a href="#" class="hover:text-cblue">Bresenham's Circle Draw </a>
+        <a href="circle_draw_bresenhams.html" class="hover:text-cblue">Bresenham's Circle Draw </a>
       </section>
     </section>
 
@@ -91,7 +91,7 @@ class FooterLinks extends HTMLElement {
       <a href="line_draw_dda_solver.html" class="text-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >dda line draw algo. solver</a>
       <a href="line_draw_bresenham_solver.html" class="text-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >Bresenham's line Draw</a>
       <a href="circle_draw_midpoint.html" class="text-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >Mid Point Circle Draw</a>
-      <a href="#" class="text-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >Bresenham's Circle Draw</a>
+      <a href="circle_draw_bresenhams.html" class="text-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >Bresenham's Circle Draw</a>
       <a href="#" class="text-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >2d-Translation</a>
       <a href="#" class="text-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >2d-Scaling</a>
       <a href="#" class="text-sm text-clessopacitywhite hover:text-cwhite hover:bg-cblack inline-block px-2 " >2d-Rotation</a>
@@ -205,10 +205,10 @@ class CircleDrawForm extends HTMLElement{
         <h5 class="text-cwhite font-medium text-xl my-2">Center Co-ord</h5>
         <div class="flex justify-around">
           <span class="text-cwhite font-bold text-sm text-left w-full"> X: &nbsp;
-            <input type="text" name="center-x-coordinate" autocomplete="off" id="centerXCoOrdinate" class="cordinate-inputs bg-cblack rounded-md py-1 px-2 w-2/4 focus:outline-1 focus:outline-cblue outline-none">
+            <input type="text" name="center-x-coordinate" autocomplete="off" placeholder="x" id="centerXCoOrdinate" class="cordinate-inputs bg-cblack rounded-md py-1 px-2 w-2/4 focus:outline-1 focus:outline-cblue outline-none">
           </span>
           <span class="text-cwhite font-bold text-sm text-right w-full"> Y: &nbsp;
-            <input type="text" name="center-y-coordinate" autocomplete="off" id="centerYCoOrdinate" class="cordinate-inputs bg-cblack rounded-md py-1 px-2 w-2/4 focus:outline-1 focus:outline-cblue outline-none">
+            <input type="text" name="center-y-coordinate" autocomplete="off" placeholder="y" id="centerYCoOrdinate" class="cordinate-inputs bg-cblack rounded-md py-1 px-2 w-2/4 focus:outline-1 focus:outline-cblue outline-none">
           </span>
         </div>
       </div>
@@ -217,7 +217,7 @@ class CircleDrawForm extends HTMLElement{
         <h5 class="text-cwhite font-medium text-xl my-2">Radius</h5>
         <div class="flex justify-around">
           <span class="text-cwhite font-bold text-sm text-left w-full"> R: &nbsp;
-            <input type="text" name="circle-radius" autocomplete="off" id="radius" class="cordinate-inputs bg-cblack rounded-md py-1 px-2 focus:outline-1 focus:outline-cblue outline-none">
+            <input type="text" name="circle-radius" autocomplete="off" placeholder="r." id="radius" class="cordinate-inputs bg-cblack rounded-md py-1 px-2 focus:outline-1 focus:outline-cblue outline-none">
           </span>
         </div>			
       </div>
@@ -257,5 +257,3 @@ customElements.define("result-container", ResultContainer)
 customElements.define("line-draw-form", LineDrawForm)
 customElements.define("circle-draw-form", CircleDrawForm)
 customElements.define("px-loader" , PxLoader)
-
-

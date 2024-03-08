@@ -71,7 +71,7 @@ const line_draw_main = (mode)=> {
 }
 
 const circle_draw_main = (mode) => {
-    console.log(' iam a circle draw main ')
+    // console.log(' iam a circle draw main ')
 
     try{
 
@@ -98,7 +98,7 @@ const circle_draw_main = (mode) => {
 
         showResult(result)
         unlogError()
-        setTimeout( ()=> togglePxLoader() , Math.floor(Math.random() * (2000 - 500 + 1) + 500))
+        setTimeout( () => togglePxLoader() , Math.floor(Math.random() * (2000 - 500 + 1) + 500))
         
     } catch ( err ) {
         console.log(err.message)
@@ -276,6 +276,48 @@ const midPointCircleDrawCalc = ( x , y , rad) => {
     return newResult
 }
 
+
 const bresenhamCircleDrawCalc = ( x , y , rad) => {
-    clg("i am bresenhman circle draw...")
+
+    //bresenham circle draw...
+    console.log("i am bresenhams");
+    
+    let start = {x : 0 , y : rad} , dp = 3 - 2*(rad);
+    let result = new Array()
+    if(rad <= 0)
+        return result
+
+    while( start.x < start.y ){
+
+        result.push({ x: start.x  , y: start.y },  { x: start.y , y: start.x })
+        // console.log(start.x, start.y , dp)
+        start.x++
+        if( dp < 0 ){
+            dp += 4 * start.x + 6
+        } else {
+            start.y--
+            dp += 4 * (start.x - start.y) +10
+        }
+
+    }
+    
+    let newResult = new Array()
+
+    for(let i = 0 ; i < result.length ; i++){
+        let ele = result[i]
+
+        // 1st quadrant
+        newResult.push( { x : ele.x + x , y : ele.y + y } )
+    
+        //2nd quadrant
+        newResult.push( { x: (-ele.x) + x , y : (ele.y) + y } )
+
+        //3rd quadrant
+        newResult.push( { x: (-ele.x) + x , y : (-ele.y) + y } )
+
+        //4th quadrant
+        newResult.push( { x: (ele.x) + x , y : (-ele.y) + y } )
+    }
+
+    return newResult
 }
